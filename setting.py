@@ -2,16 +2,21 @@ import pygame
 from pygame.locals import *
 pygame.init()
 
-# Colors
-class colors():
+class Colors():
     WHITE = (255, 255, 255)
     RED = (255, 0, 0)
     GREEN = (0, 255, 0)
     BLACK = (0, 0, 0)
     YELLOW = (186, 200, 0)
     BLUE = (0, 0, 255)
-    BROWN = (100, 70, 36)
+    BROWN = (83, 53, 10)
     SKYBLUE = (154,203,255)
+    LIGHTBROWN = (124, 96, 62)
+
+class FontType():
+    FONT1 = pygame.font.SysFont('Dotum', 50)
+    FONT2 = pygame.font.SysFont('Cambria', 30)
+    FONT3 = pygame.font.SysFont('Garamond', 20)
 
 # Screen
 ScreenWidth = 1024
@@ -25,6 +30,9 @@ def fps_clock():
     clock.tick(FPS)
 
 def update_screen():
-    pygame.display.flip()
+    pygame.display.update()
+
+
+
 
 
