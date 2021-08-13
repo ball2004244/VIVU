@@ -17,13 +17,13 @@ class Player():
         # Legs
         self.leg_width = 14
         self.leg_height = self.leg_width
-        #left leg
+        # left leg
         self.left_leg_x = self.surface_width // 2 - 20
         self.left_leg_y = self.surface_height - self.leg_height
         pygame.draw.rect(self.surface, Colors.BLACK, (self.left_leg_x,
-        self.left_leg_y, self.leg_width, self.leg_height))
+                                                      self.left_leg_y, self.leg_width, self.leg_height))
 
-        #right leg
+        # right leg
         self.right_leg_x = self.left_leg_x + 5
         self.right_leg_y = self.left_leg_y
         pygame.draw.rect(self.surface, Colors.BLACK, (self.right_leg_x + 20,
@@ -55,14 +55,14 @@ class Player():
         # left arm
         self.left_arm_x = self.body_x - self.body_rad - self.arm_rad
         self.left_arm_y = self.body_y + 2
-        
+
         pygame.draw.circle(self.surface, Colors.BLACK,
                            (self.left_arm_x, self.left_arm_y), self.arm_rad)
 
         # right arm
         self.right_arm_x = self.body_x + self.body_rad + self.arm_rad
         self.right_arm_y = self.body_y + 2
-        
+
         pygame.draw.circle(self.surface, Colors.BLACK,
                            (self.right_arm_x, self.right_arm_y), self.arm_rad)
 
@@ -89,7 +89,7 @@ class Player():
         self.give_damage_left = False
         self.give_damage_right = False
 
-        #Extend them
+        # Extend them
         self.theme_extend_left = False
         self.theme_extend_right = False
 
@@ -98,13 +98,9 @@ class Player():
         self.pos_y = 500 - self.surface_height
         pass
 
-
-
     def draw(self):
         Screen.blit(self.surface, (self.pos_x, self.pos_y))
         pass
-
-
 
     def update(self):
         '''MOVING IN 4 DIRECTIONS'''
@@ -117,16 +113,17 @@ class Player():
         if key_pressed[pygame.K_d]:
             self.pos_x += self.speed
 
-        # Moving background while character moving near border 
-        if self.pos_x < 100: 
+        # Moving background while character moving near border
+        if self.pos_x < 100:
             self.theme_extend_left = True
-        else: self.theme_extend_left = False
-        
+        else:
+            self.theme_extend_left = False
+
         if self.pos_x > 924:
             self.theme_extend_right = True
-        else: 
+        else:
             self.them_extend_right = False
-        
+
         # Jumping & Falling
             # get key
         if key_pressed[pygame.K_w] and self.jump == False and self.fall == False:
@@ -169,13 +166,9 @@ class Player():
             else:
                 self.give_damage_left = False
                 self.give_damage_right = False
-        #Unfinished    
+        # Unfinished
 
     pass
-
-
-
-
 
 
 class StatusBar():
@@ -257,6 +250,6 @@ class StatusBar():
 
         if self.use_mana == True and self.mp_width > 0:
             self.mp_width -= 1
-        
-        #Unfinished
+
+        # Unfinished
         pass

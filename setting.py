@@ -36,7 +36,7 @@ class Colors():
     GRASSGREEN = (0,154,23)
     CYAN = (0,255,255)
     BRICKRED = (203, 65, 84)
-    BLUEGREY = (104, 118, 129)2)
+    BLUEGREY = (104, 118, 129)
 
 class FontType():
     FONT1 = pygame.font.SysFont('Dotum', 50)
