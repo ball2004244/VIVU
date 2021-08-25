@@ -7,7 +7,7 @@ class Colors():
     RED = (255, 0, 0)
     GREEN = (0, 255, 0)
     BLACK = (0, 0, 0)
-    YELLOW = (186, 200, 0)
+    YELLOW = (255, 255, 0)
     BLUE = (0, 0, 255)
     BROWN = (100, 70, 36)
     SKYBLUE = (154, 203, 255)
@@ -37,6 +37,10 @@ class Colors():
     CYAN = (0,255,255)
     BRICKRED = (203, 65, 84)
     BLUEGREY = (104, 118, 129)
+    GOLDENROD = (218, 165, 32)
+    CERULEAN = (0, 123, 167)
+    MUSTARD = (225, 173, 1)
+    TEAL = (0,128 , 128)
 
 class FontType():
     FONT1 = pygame.font.SysFont('Dotum', 50)
