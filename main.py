@@ -42,8 +42,8 @@ while True:
     stick_lv1.draw()
 
     # update
+    theme_lv1.update(player.theme_extend_left, player.theme_extend_right)
     player.update()
-    theme_lv1.update()
     creep_lv1.update()
 
     fps_clock()

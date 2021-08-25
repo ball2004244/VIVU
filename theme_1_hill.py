@@ -1,5 +1,4 @@
 from setting import Screen, Colors
-from main_character import Player
 import pygame
 from pygame.locals import *
 pygame.init()
@@ -10,8 +9,11 @@ pygame.init()
 class ThemeLevelOne():
     def __init__(self):
         '''INITIALIZE VISUAL IMAGES'''
-        # Container of this theme
+        # Theme Surface
         self.surface = pygame.Surface((1366, 768), SRCALPHA)
+        self.pos_x = 0
+        self.pos_y = 0
+        self.speed = 7  # Transition speed
 
         # Land
         self.land_x = 0
@@ -45,32 +47,36 @@ class ThemeLevelOne():
 
         # Bushses
 
-        for self.bush_x in range(-100, 1124, 80):
-            for self.bush_y in range(390, 500, 30):
-                self.bush_rad = 45
+        for self.bush_x in range(-100, 1124, 100):
+            for self.bush_y in range(450, 530, 120):
+                self.bush_rad = 70
                 pygame.draw.circle(self.surface, Colors.GREEN,
-                                (self.bush_x, self.bush_y), self.bush_rad)
+                                   (self.bush_x, self.bush_y), self.bush_rad)
 
-        '''INITIALIZE VARIABLES FOR MECHANISM'''
-        #Transition 
-        self.speed = 20
-
-        #Surface's position
-        self.pos_x = 0
-        self.pos_y = 0
+        # Clouds
+            self.cloud_x = 900
+            self.cloud_y = 100
+            self.cloud_rad = 35
+            pygame.draw.circle(self.surface, Colors.WHITE,
+                               (self.cloud_x, self.cloud_y), self.cloud_rad)
+            pygame.draw.circle(self.surface, Colors.WHITE, (self.cloud_x -
+                               self.cloud_rad, self.cloud_y), self.cloud_rad * 3 // 4)
+            pygame.draw.circle(self.surface, Colors.WHITE, (self.cloud_x +
+                               self.cloud_rad, self.cloud_y), self.cloud_rad * 3 // 4)
 
     def draw(self):
 
         Screen.blit(self.surface, (self.pos_x, self.pos_y))
         pass
 
-    def update(self):
-        #Moving background while main character move near border
-        player = Player()
+    def update(self, check_left, check_right):
+        # Moving background while main character move near border
 
-        #left
-        if player.theme_extend_left == True:
+        # DEBUGGING
+        # print(player.theme_extend_left)
+
+        if check_left == True:
             self.pos_x -= self.speed
-        if player.theme_extend_right == True:
+        if check_right == True:
             self.pos_x += self.speed
         pass

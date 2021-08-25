@@ -6,10 +6,24 @@ pygame.init()
 
 class Player():
     def __init__(self):
-        # Surface
+        # Game Surface: The surface with S = 1024 * 768
+        self.game_surface_height = 768
+        self.game_surface_width = 1024
+        self.game_surface_x = 0
+        self.game_surface_y = 0
+        self.game_surface = pygame.Surface(
+            (self.game_surface_width, self.game_surface_height), SRCALPHA)
+
+        self.theme_extend_left = False
+        self.theme_extend_right = False
+
+        # Player Surface
         '''Delete SRCALPHA to see hitbox in black Colors'''
         self.surface_height = 60
         self.surface_width = self.surface_height + 30
+        self.pos_x = 1024 / 2 - 150
+        self.pos_y = 500 - self.surface_height
+
         self.surface = pygame.Surface(
             (self.surface_width, self.surface_height), SRCALPHA)
 
@@ -89,40 +103,24 @@ class Player():
         self.give_damage_left = False
         self.give_damage_right = False
 
-        # Extend them
-        self.theme_extend_left = False
-        self.theme_extend_right = False
-
-        # Surface's position
-        self.pos_x = 1024 / 2 - 150
-        self.pos_y = 500 - self.surface_height
         pass
 
     def draw(self):
         Screen.blit(self.surface, (self.pos_x, self.pos_y))
+        Screen.blit(self.game_surface,
+                    (self.game_surface_x, self.game_surface_y))
         pass
 
     def update(self):
         '''MOVING IN 4 DIRECTIONS'''
         key_pressed = pygame.key.get_pressed()
         # Moving Left
-        if key_pressed[pygame.K_a]:
+        if key_pressed[pygame.K_a] and not self.theme_extend_left:
             self.pos_x -= self.speed
 
         # Moving Right
-        if key_pressed[pygame.K_d]:
+        if key_pressed[pygame.K_d] and not self.theme_extend_right:
             self.pos_x += self.speed
-
-        # Moving background while character moving near border
-        if self.pos_x < 100:
-            self.theme_extend_left = True
-        else:
-            self.theme_extend_left = False
-
-        if self.pos_x > 924:
-            self.theme_extend_right = True
-        else:
-            self.them_extend_right = False
 
         # Jumping & Falling
             # get key
@@ -168,6 +166,23 @@ class Player():
                 self.give_damage_right = False
         # Unfinished
 
+        # Moving background while character moving near border
+        # CHECK LEFT BORDER
+        if self.pos_x < self.game_surface_x + 100:
+            self.theme_extend_left = True
+        else:
+            self.theme_extend_left = False
+
+        # CHECK RIGHT BORDER
+        if self.pos_x + self.surface_width > self.game_surface_x + self.game_surface_width - 100:
+            self.theme_extend_right = True
+        else:
+            self.theme_extend_right = False
+          
+        # DEBUGGING
+        '''print(str(self.pos_x) + ' ' + str(self.theme_extend_left) +
+              ' ' + str(self.theme_extend_right))'''
+
     pass
 
 
@@ -177,6 +192,8 @@ class StatusBar():
         # surface
         self.surface_width = 260
         self.surface_height = self.surface_width / 2 - 20
+        self.pos_x = 10
+        self.pos_y = 10
         self.surface = pygame.Surface(
             (self.surface_width, self.surface_height))
         self.surface.fill(Colors.LIGHTBROWN)
@@ -217,10 +234,6 @@ class StatusBar():
 
         self.die = False
 
-        # Surface's position
-        self.pos_x = 10
-        self.pos_y = 10
-
         pass
 
     def draw(self):
@@ -243,13 +256,32 @@ class StatusBar():
 
     def update(self):
         '''CONSUMING HP/MP'''
+        # Self-damage button
+        key_pressed = pygame.key.get_pressed()
+
+        if key_pressed[pygame.K_e]:
+            self.get_damage = True
+        else:
+            self.get_damage = False
+
+        # Use-mana button
+        if key_pressed[pygame.K_r]:
+            self.use_mana = True
+        else:
+            self.use_mana = False
+
         if self.get_damage == True and self.hp_width > 0:
             self.hp_width -= 1
+            self.hp_amount -= 1
         else:
             self.die = True
 
         if self.use_mana == True and self.mp_width > 0:
             self.mp_width -= 1
+            self.mp_amount -= 1
+
+        if self.die:
+            self.speed = 0
 
         # Unfinished
         pass
