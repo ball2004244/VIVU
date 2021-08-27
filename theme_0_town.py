@@ -8,7 +8,7 @@ pygame.init()
 player = Player()
 themelevelone = ThemeLevelOne()
 
-class TownBackground():
+class ThemeLevelZero():
     def __init__(self):
         self.quantity = 6
         self.a_surf = pygame.Surface((10, 100))
