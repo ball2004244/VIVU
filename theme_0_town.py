@@ -2,7 +2,7 @@ import pygame, sys
 from main_character import Player
 from setting import Screen, Colors
 from pygame.locals import *
-from theme_1_hill import ThemeLevelOne
+from theme import ThemeLevelOne
 pygame.init()
 
 player = Player()
@@ -11,14 +11,13 @@ themelevelone = ThemeLevelOne()
 class TownBackground():
     def __init__(self):
         self.quantity = 6
-        self.a = 362
         self.a_surf = pygame.Surface((10, 100))
-        self.character_speed = player.speed
-        self.theme_speed = themelevelone.speed
+
+        self.theme_speed = - themelevelone.speed
 # town screen
         self.pos_x = 0
         self.pos_y = 0
-        self.townScreen = pygame.Surface((1024 * 10, 768), pygame.SRCALPHA)
+        self.townScreen = pygame.Surface((1024 * 10, 768),SRCALPHA)
 # land
         self.land_x = 0
         self.land_y = 500
@@ -409,23 +408,12 @@ class TownBackground():
 
             # ...
 
-    def update(self):
+    def update(self, check_left, check_right):
 
-        if self.a < 0:
-            self.a = 0
-        if self.a + 90 > 1024:
-            self.a = 1024 - 90
-        key_pressed = pygame.key.get_pressed()
-
-        if key_pressed[pygame.K_a]:
-            self.a -= self.character_speed
-        if key_pressed[pygame.K_d]:
-            self.a += self.character_speed
-
-        if self.a < 100 and key_pressed[pygame.K_a] and self.pos_x != 0:
-            self.pos_x += self.theme_speed
-        if self.a > 926 and key_pressed[pygame.K_d]:
+        if check_left and self.pos_x != 0:
             self.pos_x -= self.theme_speed
+        if check_right:
+            self.pos_x += self.theme_speed
             '''
 
         if player.pos_x < 100:
