@@ -2,7 +2,7 @@ import pygame, sys
 from main_character import Player
 from setting import Screen, Colors
 from pygame.locals import *
-from theme import ThemeLevelOne
+from theme_1_hill import ThemeLevelOne
 pygame.init()
 
 player = Player()
@@ -18,7 +18,7 @@ class TownBackground():
 # town screen
         self.pos_x = 0
         self.pos_y = 0
-        self.townScreen = pygame.Surface((1024 * 10, 768),SRCALPHA)
+        self.townScreen = pygame.Surface((1024 * 10, 768), pygame.SRCALPHA)
 # land
         self.land_x = 0
         self.land_y = 500

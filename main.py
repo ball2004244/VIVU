@@ -1,6 +1,7 @@
 # Import modules
 from weapon.stick import StickLevelOne
 from theme_1_hill import ThemeLevelOne
+from shop import ShopThemeOne
 from main_character import Player, StatusBar
 from setting import fps_clock, update_screen, Screen, Colors
 from enemy.creep import CreepLevelOne
@@ -17,13 +18,22 @@ theme_lv1 = ThemeLevelOne()
 status_bar = StatusBar()
 creep_lv1 = CreepLevelOne()
 stick_lv1 = StickLevelOne()
-
+shop_lv1 = ShopThemeOne()
 
 # Main function
 while True:
-    # quit
+    # draw
+    Screen.fill(Colors.WHITE)
+
+    theme_lv1.draw()
+    player.draw()
+    status_bar.draw()
+    creep_lv1.draw()
+    shop_lv1.draw(player, stick_lv1)
+
+    # update
     for event in pygame.event.get():
-        if event.type == QUIT:
+        if event.type == pygame.QUIT:
             # shutil.rmtree use to delete folders
             shutil.rmtree('__pycache__')
             shutil.rmtree('enemy/__pycache__')
@@ -32,19 +42,17 @@ while True:
             pygame.quit()
             sys.exit()
 
-    Screen.fill(Colors.WHITE)
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_m:
+            shop_lv1.toggle()
+            
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            shop_lv1.trading(player, stick_lv1)
 
-    # draw
-    theme_lv1.draw()
-    player.draw()
-    status_bar.draw()
-    creep_lv1.draw()
-    stick_lv1.draw()
-
-    # update
-    theme_lv1.update(player.theme_extend_left, player.theme_extend_right)
-    player.update()
+    theme_lv1.update(player)
+    player.update(status_bar)
     creep_lv1.update()
+    status_bar.update()
+    shop_lv1.update()
 
     fps_clock()
     update_screen()

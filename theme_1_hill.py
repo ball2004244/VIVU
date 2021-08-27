@@ -10,7 +10,7 @@ class ThemeLevelOne():
     def __init__(self):
         '''INITIALIZE VISUAL IMAGES'''
         # Theme Surface
-        self.surface = pygame.Surface((1366, 768), SRCALPHA)
+        self.surface = pygame.Surface((1366, 768), pygame.SRCALPHA)
         self.pos_x = 0
         self.pos_y = 0
         self.speed = 7  # Transition speed
@@ -69,14 +69,14 @@ class ThemeLevelOne():
         Screen.blit(self.surface, (self.pos_x, self.pos_y))
         pass
 
-    def update(self, check_left, check_right):
+    def update(self, player):
         # Moving background while main character move near border
 
         # DEBUGGING
         # print(player.theme_extend_left)
-
-        if check_left == True:
-            self.pos_x -= self.speed
-        if check_right == True:
+        key_pressed = pygame.key.get_pressed()
+        if player.theme_extend_left and key_pressed[pygame.K_a]:
             self.pos_x += self.speed
+        if player.theme_extend_right and key_pressed[pygame.K_d]:
+            self.pos_x -= self.speed
         pass

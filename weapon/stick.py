@@ -11,7 +11,7 @@ class StickLevelOne():
         self.surface_width = 14
         self.surface_height = self.surface_width * 8
         self.surface = pygame.Surface(
-            (self.surface_width, self.surface_height), SRCALPHA)
+            (self.surface_width, self.surface_height), pygame.SRCALPHA)
 
         # surface position
         self.pos_x = 300
@@ -28,7 +28,7 @@ class StickLevelOne():
 
             # stick head
             self.head_width = self.width
-            self.head_height = self.height / 10
+            self.head_height = self.height // 10
 
             self.head_x = self.x
             self.head_up_y = self.y
@@ -48,6 +48,8 @@ class StickLevelOne():
         '''VARIABLE FOR MECHANISM'''
         self.hit_enemy = False
         self.damage = 5
+        self.buy_price = 30 #dollar
+        self.sell_price = 5 #dollar
         pass
 
     def draw(self):
