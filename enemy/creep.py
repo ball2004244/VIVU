@@ -11,7 +11,7 @@ class CreepLevelOne():
         self.surface_height = 250
         self.surface_width = self.surface_height
         self.surface = pygame.Surface(
-            (self.surface_width, self.surface_height), SRCALPHA)
+            (self.surface_width, self.surface_height), pygame.SRCALPHA)
 
         '''CUSTOMIZE APPEARANCE'''
         def appearance():
@@ -44,7 +44,7 @@ class CreepLevelOne():
                 self.spike_foot_y = self.body_y - self.body_rad
 
                 self.spike_peak_x = (self.spike_left_foot_x +
-                                    self.spike_right_foot_x) / 2
+                                     self.spike_right_foot_x) / 2
                 self.spike_peak_y = self.spike_foot_y - 3 * self.body_rad
 
                 pygame.draw.polygon(self.surface, Colors.BLACK, ([self.spike_left_foot_x, self.spike_foot_y], [
@@ -61,13 +61,14 @@ class CreepLevelOne():
                 pygame.draw.polygon(self.surface, Colors.BLACK, ([self.spike_2_left_foot_x, self.spike_2_foot_y], [
                                     self.spike_2_right_foot_x, self.spike_2_foot_y], [self.spike_2_peak_x, self.spike_2_peak_y]))
 
-                # left spike 
+                # left spike
                 self.spike_3_foot_x = self.body_x - self.body_rad
                 self.spike_3_up_foot_y = self.body_y - self.body_rad
                 self.spike_3_down_foot_y = self.spike_3_up_foot_y + 2 * self.body_rad
 
                 self.spike_3_peak_x = self.spike_3_foot_x - 3 * self.body_rad
-                self.spike_3_peak_y = (self.spike_3_up_foot_y + self.spike_3_down_foot_y) / 2
+                self.spike_3_peak_y = (
+                    self.spike_3_up_foot_y + self.spike_3_down_foot_y) / 2
 
                 pygame.draw.polygon(self.surface, Colors.BLACK, ([self.spike_3_foot_x, self.spike_3_up_foot_y], [
                                     self.spike_3_foot_x, self.spike_3_down_foot_y], [self.spike_3_peak_x, self.spike_3_peak_y]))
@@ -76,24 +77,23 @@ class CreepLevelOne():
                 self.spike_4_foot_x = self.spike_3_foot_x + 2 * self.body_rad
                 self.spike_4_up_foot_y = self.spike_3_up_foot_y
                 self.spike_4_down_foot_y = self.spike_3_down_foot_y
-                
+
                 self.spike_4_peak_x = self.spike_4_foot_x + 3 * self.body_rad
                 self.spike_4_peak_y = self.spike_3_peak_y
 
                 pygame.draw.polygon(self.surface, Colors.BLACK, ([self.spike_4_foot_x, self.spike_4_up_foot_y], [
-                                    self.spike_4_foot_x, self.spike_4_down_foot_y], [self.spike_4_peak_x, self.spike_4_peak_y]))       
-        
-            #draw spike
+                                    self.spike_4_foot_x, self.spike_4_down_foot_y], [self.spike_4_peak_x, self.spike_4_peak_y]))
+
+            # draw spike
             spike()
-                
-        #running functions above
+
+        # running functions above
         appearance()
 
         '''VARIABLE FOR MECHANISM'''
         # Surface's position
-        self.pos_x = 500
-        self.pos_y = 100
-        self.surface_rect = (self.pos_x, self.pos_y)
+        self.pos_x = 900
+        self.pos_y = 500
 
         # Rotation
         self.angle = 0
@@ -116,7 +116,7 @@ class CreepLevelOne():
             self.rotated_surface = pygame.transform.rotozoom(
                 self.surface, self.angle, 1)
             self.rotated_surface_rect = self.rotated_surface.get_rect(
-                center=(500, 100))
+                center=(self.pos_x, self.pos_y))
             return (self.rotated_surface, self.rotated_surface_rect)
 
         self.angle -= 5

@@ -43,7 +43,7 @@ class Colors():
     TEAL = (0,128 , 128)
 
 class FontType():
-    FONT1 = pygame.font.SysFont('Dotum', 50)
+    FONT1 = pygame.font.SysFont('Cambria', 50)
     FONT2 = pygame.font.SysFont('Cambria', 30)
     FONT3 = pygame.font.SysFont('Garamond', 20)
 

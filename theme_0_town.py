@@ -2,7 +2,7 @@ import pygame, sys
 from main_character import Player
 from setting import Screen, Colors
 from pygame.locals import *
-from theme import ThemeLevelOne
+from theme_1_hill import ThemeLevelOne
 pygame.init()
 
 player = Player()
@@ -17,7 +17,7 @@ class ThemeLevelZero():
 # town screen
         self.pos_x = 0
         self.pos_y = 0
-        self.townScreen = pygame.Surface((1024 * 10, 768),SRCALPHA)
+        self.townScreen = pygame.Surface((1024 * 10, 768), pygame.SRCALPHA)
 # land
         self.land_x = 0
         self.land_y = 500
@@ -409,13 +409,13 @@ class ThemeLevelZero():
             # ...
 
     def update(self, check_left, check_right):
-
-        if check_left and self.pos_x != 0:
+        key_pressed = pygame.key.get_pressed()
+        if check_left and key_pressed[pygame.K_a]:
             self.pos_x -= self.theme_speed
-        if check_right:
+        if check_right and key_pressed[pygame.K_d]:
             self.pos_x += self.theme_speed
-            '''
 
+        '''
         if player.pos_x < 100:
             self.pos_x += self.theme_speed
         if player.pos_x > 926:

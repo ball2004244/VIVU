@@ -2,7 +2,7 @@
 from weapon.stick import StickLevelOne
 from theme_1_hill import ThemeLevelOne
 from shop import ShopThemeOne
-from main_character import Player, StatusBar
+from main_character import Player, StatusBar, Inventory
 from setting import fps_clock, update_screen, Screen, Colors
 from enemy.creep import CreepLevelOne
 import pygame
@@ -19,6 +19,7 @@ status_bar = StatusBar()
 creep_lv1 = CreepLevelOne()
 stick_lv1 = StickLevelOne()
 shop_lv1 = ShopThemeOne()
+inventory = Inventory()
 
 # Main function
 while True:
@@ -30,6 +31,7 @@ while True:
     status_bar.draw()
     creep_lv1.draw()
     shop_lv1.draw(player, stick_lv1)
+    inventory.draw(player, stick_lv1, status_bar)
 
     # update
     for event in pygame.event.get():
@@ -42,8 +44,11 @@ while True:
             pygame.quit()
             sys.exit()
 
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_m:
-            shop_lv1.toggle()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_m:
+                shop_lv1.toggle()
+            elif event.key == pygame.K_i:
+                inventory.toggle()
             
         if event.type == pygame.MOUSEBUTTONDOWN:
             shop_lv1.trading(player, stick_lv1)
@@ -53,6 +58,8 @@ while True:
     creep_lv1.update()
     status_bar.update()
     shop_lv1.update()
+    inventory.update()
+
 
     fps_clock()
     update_screen()
