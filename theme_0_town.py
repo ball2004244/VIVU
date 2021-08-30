@@ -103,7 +103,7 @@ class ThemeLevelZero():
                                  [self.house_x1 + self.house1Width - 20, self.house_y1 - 30],
                                  [self.house_x1 + self.house1Width, self.house_y1]))
             pygame.draw.rect(self.townScreen, Colors.SEA_FOAM_GREEN,
-                            [self.house_x1 + self.house1Width / 2 - 20, self.house_y1 + self.house1Height - 50,
+                            [self.house_x1 + self.house1Width // 2 - 20, self.house_y1 + self.house1Height - 50,
                             40, 50])
             pygame.draw.rect(self.townScreen, Colors.BABY_BLUE,
                             [self.house_x1 + 10, self.house_y1 + self.house1Height - 55, 20, 20])
@@ -120,7 +120,7 @@ class ThemeLevelZero():
                             [self.house_x2, self.house_y2 - 30],
                             [self.house_x2 + self.house2Width, self.house_y2 + 20], 10)
             pygame.draw.rect(self.townScreen, Colors.PLUM,
-                             [self.house_x2 + self.house2Width / 2 + 5, self.house_y2 + self.house2Height - 50,
+                             [self.house_x2 + self.house2Width // 2 + 5, self.house_y2 + self.house2Height - 50,
                               40, 50])
             pygame.draw.rect(self.townScreen, Colors.BRIGHT_BLUE,
                              [self.house_x2 + 10, self.house_y2 + self.house2Height - 55, 20, 20])
@@ -132,10 +132,10 @@ class ThemeLevelZero():
                              [self.house_x3, self.house_y3],
                              [self.house_x3 + self.house3Width, self.house_y3],10)
             pygame.draw.rect(self.townScreen, Colors.BLUISH_PURPLE,
-                             [self.house_x3 + self.house3Width / 2 + 5, self.house_y3 + self.house3Height - 30,
+                             [self.house_x3 + self.house3Width // 2 + 5, self.house_y3 + self.house3Height - 30,
                               40, 30])
             pygame.draw.circle(self.townScreen, Colors.BLUISH_PURPLE,
-                               (self.house_x3 + self.house3Width / 2 + 25, self.house_y3 + self.house3Height - 30), 20)
+                               (self.house_x3 + self.house3Width // 2 + 25, self.house_y3 + self.house3Height - 30), 20)
             pygame.draw.rect(self.townScreen, Colors.SKYBLUE,
                              [self.house_x3 + 10, self.house_y3 + self.house3Height - 55, 10, 20])
             pygame.draw.rect(self.townScreen, Colors.SKYBLUE,
@@ -151,20 +151,20 @@ class ThemeLevelZero():
             pygame.draw.circle(self.townScreen, Colors.GRASSGREEN,
                                (self.house_x4 + 5 + 25, self.house_y4 + self.house4Height - 30), 20)
             pygame.draw.rect(self.townScreen, Colors.CYAN,
-                             [self.house_x4 + self.house4Width / 2 + 5, self.house_y4 + self.house4Height - 55, 10, 20])
+                             [self.house_x4 + self.house4Width // 2 + 5, self.house_y4 + self.house4Height - 55, 10, 20])
             pygame.draw.rect(self.townScreen, Colors.CYAN,
-                             [self.house_x4 + self.house4Width / 2 + 35, self.house_y4 + self.house4Height - 55, 10, 20])
+                             [self.house_x4 + self.house4Width // 2 + 35, self.house_y4 + self.house4Height - 55, 10, 20])
 
             pygame.draw.rect(self.townScreen, Colors.SAND,
                              [self.house_x4, self.house_y4 - self.house4Height - 2.5, self.house4Width, self.house4Height])
             pygame.draw.rect(self.townScreen, Colors.CYAN,
-                             [self.house_x4 + self.house4Width / 2 + 15, self.house_y4 - 65, 10, 20])
+                             [self.house_x4 + self.house4Width // 2 + 15, self.house_y4 - 65, 10, 20])
             pygame.draw.rect(self.townScreen, Colors.CYAN,
-                             [self.house_x4 + self.house4Width / 2 + 35, self.house_y4 - 65, 10, 20])
+                             [self.house_x4 + self.house4Width // 2 + 35, self.house_y4 - 65, 10, 20])
             pygame.draw.rect(self.townScreen, Colors.CYAN,
-                             [self.house_x4 + self.house4Width / 2 - 25, self.house_y4 - 65, 10, 20])
+                             [self.house_x4 + self.house4Width // 2 - 25, self.house_y4 - 65, 10, 20])
             pygame.draw.rect(self.townScreen, Colors.CYAN,
-                             [self.house_x4 + self.house4Width / 2 - 45, self.house_y4 - 65, 10, 20])
+                             [self.house_x4 + self.house4Width // 2 - 45, self.house_y4 - 65, 10, 20])
 
             pygame.draw.line(self.townScreen, Colors.LIGHTBROWN,
                              [self.house_x4 - 0.5, self.house_y4],
@@ -180,13 +180,13 @@ class ThemeLevelZero():
                         [self.school_x, self.school_y, self.schoolWidth, self.schoolHeight])
 
         pygame.draw.polygon(self.townScreen, Colors.SEA_FOAM_GREEN,
-                            ([self.school_x + self.schoolWidth/2 - 90, self.school_y - self.schoolHeight-20],
-                             [self.school_x + self.schoolWidth/2 + 90, self.school_y - self.schoolHeight-20],
-                             [self.school_x + self.schoolWidth/2 , self.school_y - self.schoolHeight - 55-30]))
+                            ([self.school_x + self.schoolWidth//2 - 90, self.school_y - self.schoolHeight-20],
+                             [self.school_x + self.schoolWidth//2 + 90, self.school_y - self.schoolHeight-20],
+                             [self.school_x + self.schoolWidth//2 , self.school_y - self.schoolHeight - 55-30]))
 
         pygame.draw.rect(self.townScreen, Colors.BRICKRED,
-                         [self.school_x + self.schoolWidth/2 - 75, self.school_y - self.schoolHeight-20,
-                          self.schoolWidth/4, self.schoolHeight*2 ])
+                         [self.school_x + self.schoolWidth//2 - 75, self.school_y - self.schoolHeight-20,
+                          self.schoolWidth//4, self.schoolHeight*2 ])
         pygame.draw.polygon(self.townScreen, Colors.SEA_FOAM_GREEN,
                             ([self.school_x, self.school_y],
                              [self.school_x + self.schoolWidth, self.school_y],
@@ -194,146 +194,146 @@ class ThemeLevelZero():
                              [self.school_x + 15, self.school_y - 30]))
             # door
         pygame.draw.circle(self.townScreen, Colors.BLUEGREY,
-                         [self.school_x + self.schoolWidth / 2, self.school_y + self.schoolHeight - 50],
-                           self.schoolWidth/20)
+                         [self.school_x + self.schoolWidth // 2, self.school_y + self.schoolHeight - 50],
+                           self.schoolWidth//20)
         pygame.draw.rect(self.townScreen, Colors.BLUEGREY,
-                         [self.school_x + self.schoolWidth / 2 - 30, self.school_y + self.schoolHeight - 50,
-                          self.schoolWidth / 10, self.schoolHeight - 65])
+                         [self.school_x + self.schoolWidth // 2 - 30, self.school_y + self.schoolHeight - 50,
+                          self.schoolWidth // 10, self.schoolHeight - 65])
             # clock
         pygame.draw.circle(self.townScreen, Colors.AQUAMARINE,
-                           [self.school_x + self.schoolWidth / 2, self.school_y - 90],
-                           self.schoolWidth / 20 + 5)
+                           [self.school_x + self.schoolWidth // 2, self.school_y - 90],
+                           self.schoolWidth // 20 + 5)
         pygame.draw.line(self.townScreen, Colors.BLACK,
-                         [self.school_x + self.schoolWidth / 2, self.school_y - 90],
-                         [self.school_x + self.schoolWidth / 2, self.school_y - 90 - self.schoolWidth/20],4)
+                         [self.school_x + self.schoolWidth // 2, self.school_y - 90],
+                         [self.school_x + self.schoolWidth // 2, self.school_y - 90 - self.schoolWidth//20],4)
         pygame.draw.line(self.townScreen, Colors.BLACK,
-                         [self.school_x + self.schoolWidth / 2, self.school_y - 90],
-                         [self.school_x + self.schoolWidth / 2 + self.schoolWidth/20 - 10, self.school_y - 90], 4)
+                         [self.school_x + self.schoolWidth // 2, self.school_y - 90],
+                         [self.school_x + self.schoolWidth // 2 + self.schoolWidth//20 - 10, self.school_y - 90], 4)
         pygame.draw.circle(self.townScreen, Colors.BLACK,
-                           [self.school_x + self.schoolWidth / 2 + 0.5, self.school_y - 90],
-                           self.schoolWidth / 20 - 27.5)
+                           [self.school_x + self.schoolWidth // 2 + 1 // 2, self.school_y - 90],
+                           self.schoolWidth // 20 - 55 // 2)
 
             # windows
         pygame.draw.rect(self.townScreen, Colors.AQUAMARINE,
-                         [self.school_x + 30, self.school_y + 50, self.schoolWidth/15, self.schoolHeight-85])
+                         [self.school_x + 30, self.school_y + 50, self.schoolWidth//15, self.schoolHeight-85])
         pygame.draw.rect(self.townScreen, Colors.AQUAMARINE,
-                         [self.school_x + 110, self.school_y + 50, self.schoolWidth / 15, self.schoolHeight - 85])
+                         [self.school_x + 110, self.school_y + 50, self.schoolWidth // 15, self.schoolHeight - 85])
         pygame.draw.rect(self.townScreen, Colors.AQUAMARINE,
-                         [self.school_x + 190, self.school_y + 50, self.schoolWidth / 15, self.schoolHeight - 85])
+                         [self.school_x + 190, self.school_y + 50, self.schoolWidth // 15, self.schoolHeight - 85])
         pygame.draw.rect(self.townScreen, Colors.AQUAMARINE,
                          [self.school_x + self.schoolWidth - 70, self.school_y + 50,
-                          self.schoolWidth / 15, self.schoolHeight - 85])
+                          self.schoolWidth // 15, self.schoolHeight - 85])
         pygame.draw.rect(self.townScreen, Colors.AQUAMARINE,
                          [self.school_x + self.schoolWidth - 150, self.school_y + 50,
-                          self.schoolWidth / 15, self.schoolHeight - 85])
+                          self.schoolWidth // 15, self.schoolHeight - 85])
         pygame.draw.rect(self.townScreen, Colors.AQUAMARINE,
                          [self.school_x + self.schoolWidth - 230, self.school_y + 50,
-                          self.schoolWidth / 15, self.schoolHeight - 85])
+                          self.schoolWidth // 15, self.schoolHeight - 85])
 
     # church
         # left building
         pygame.draw.rect(self.townScreen, Colors.MUSTARD,
-                         [self.church_x, self.church_y - 20, self.churchWidth/4, self.churchHeight + 20])
+                         [self.church_x, self.church_y - 20, self.churchWidth//4, self.churchHeight + 20])
         pygame.draw.rect(self.townScreen, Colors.BLACK,
-                         [self.church_x + self.churchWidth / 8 - 2, self.church_y - 105, 5, 35])
+                         [self.church_x + self.churchWidth // 8 - 2, self.church_y - 105, 5, 35])
         pygame.draw.rect(self.townScreen, Colors.BLACK,
-                         [self.church_x + self.churchWidth / 8 - 10, self.church_y - 95, 20, 5])
+                         [self.church_x + self.churchWidth // 8 - 10, self.church_y - 95, 20, 5])
         pygame.draw.polygon(self.townScreen, Colors.MIDNIGHT_BLUE,
                             ([self.church_x, self.church_y - 20],
-                             [self.church_x + self.churchWidth/4, self.church_y - 20],
-                             [self.church_x + self.churchWidth/8, self.church_y - 75]))
+                             [self.church_x + self.churchWidth//4, self.church_y - 20],
+                             [self.church_x + self.churchWidth//8, self.church_y - 75]))
         pygame.draw.rect(self.townScreen, Colors.CERULEAN,
-                         [self.church_x + self.churchWidth / 8 - 45, self.church_y + self.churchHeight - 65,
-                          self.churchWidth / 20, self.churchHeight - 75])
+                         [self.church_x + self.churchWidth // 8 - 45, self.church_y + self.churchHeight - 65,
+                          self.churchWidth // 20, self.churchHeight - 75])
         pygame.draw.circle(self.townScreen, Colors.CERULEAN,
-                           [self.church_x + self.churchWidth / 8 - 30, self.church_y + self.churchHeight - 65],
-                           self.churchWidth / 40)
+                           [self.church_x + self.churchWidth // 8 - 30, self.church_y + self.churchHeight - 65],
+                           self.churchWidth // 40)
         pygame.draw.rect(self.townScreen, Colors.CERULEAN,
-                         [self.church_x + self.churchWidth / 8 + 10, self.church_y + self.churchHeight - 65,
-                          self.churchWidth / 20, self.churchHeight - 75])
+                         [self.church_x + self.churchWidth // 8 + 10, self.church_y + self.churchHeight - 65,
+                          self.churchWidth // 20, self.churchHeight - 75])
         pygame.draw.circle(self.townScreen, Colors.CERULEAN,
-                           [self.church_x + self.churchWidth / 8 + 25, self.church_y + self.churchHeight - 65],
-                           self.churchWidth / 40)
+                           [self.church_x + self.churchWidth // 8 + 25, self.church_y + self.churchHeight - 65],
+                           self.churchWidth // 40)
         # right building
         pygame.draw.rect(self.townScreen, Colors.MUSTARD,
-                         [self.church_x + self.churchWidth / 2 + 150, self.church_y - 20, self.churchWidth / 4,
+                         [self.church_x + self.churchWidth // 2 + 150, self.church_y - 20, self.churchWidth // 4,
                           self.churchHeight + 20])
         pygame.draw.rect(self.townScreen, Colors.BLACK,
-                         [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 8 - 2, self.church_y - 105,
+                         [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 8 - 2, self.church_y - 105,
                           5, 35])
         pygame.draw.rect(self.townScreen, Colors.BLACK,
-                         [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 8 - 10, self.church_y - 95,
+                         [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 8 - 10, self.church_y - 95,
                           20, 5])
         pygame.draw.polygon(self.townScreen, Colors.MIDNIGHT_BLUE,
-                            ([self.church_x + self.churchWidth / 2 + 150, self.church_y - 20],
-                             [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 4, self.church_y - 20],
-                             [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 8, self.church_y - 75]))
+                            ([self.church_x + self.churchWidth // 2 + 150, self.church_y - 20],
+                             [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 4, self.church_y - 20],
+                             [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 8, self.church_y - 75]))
         pygame.draw.rect(self.townScreen, Colors.CERULEAN,
-                         [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 8 - 45, self.church_y + self.churchHeight - 65,
-                          self.churchWidth / 20, self.churchHeight - 75])
+                         [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 8 - 45, self.church_y + self.churchHeight - 65,
+                          self.churchWidth // 20, self.churchHeight - 75])
         pygame.draw.circle(self.townScreen, Colors.CERULEAN,
-                           [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 8 - 30, self.church_y + self.churchHeight - 65],
-                           self.churchWidth / 40)
+                           [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 8 - 30, self.church_y + self.churchHeight - 65],
+                           self.churchWidth // 40)
         pygame.draw.rect(self.townScreen, Colors.CERULEAN,
-                         [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 8 + 10, self.church_y + self.churchHeight - 65,
-                          self.churchWidth / 20, self.churchHeight - 75])
+                         [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 8 + 10, self.church_y + self.churchHeight - 65,
+                          self.churchWidth // 20, self.churchHeight - 75])
         pygame.draw.circle(self.townScreen, Colors.CERULEAN,
-                           [self.church_x + self.churchWidth / 2 + 150 + self.churchWidth / 8 + 25, self.church_y + self.churchHeight - 65],
-                           self.churchWidth / 40)
+                           [self.church_x + self.churchWidth // 2 + 150 + self.churchWidth // 8 + 25, self.church_y + self.churchHeight - 65],
+                           self.churchWidth // 40)
         # mid building
             # bot
         pygame.draw.polygon(self.townScreen, Colors.YELLOW,
-                            ([self.church_x + self.churchWidth / 2 - 175, self.church_y],
-                             [self.church_x + self.churchWidth / 2 - 175, self.church_y + self.churchHeight - 0.5],
-                             [self.church_x + self.churchWidth / 2 + 175, self.church_y + self.churchHeight - 0.5],
-                             [self.church_x + self.churchWidth / 2 + 175, self.church_y],
-                             [self.church_x + self.churchWidth / 2, self.church_y - self.church_y / 6]))
+                            ([self.church_x + self.churchWidth // 2 - 175, self.church_y],
+                             [self.church_x + self.churchWidth // 2 - 175, self.church_y + self.churchHeight - 0.5],
+                             [self.church_x + self.churchWidth // 2 + 175, self.church_y + self.churchHeight - 0.5],
+                             [self.church_x + self.churchWidth // 2 + 175, self.church_y],
+                             [self.church_x + self.churchWidth // 2, self.church_y - self.church_y // 6]))
         pygame.draw.line(self.townScreen, Colors.MIDNIGHT_BLUE,
-                         [self.church_x + self.churchWidth/2 - 175, self. church_y],
-                         [self.church_x + self.churchWidth/2, self. church_y - self. church_y/6], 10)
+                         [self.church_x + self.churchWidth//2 - 175, self. church_y],
+                         [self.church_x + self.churchWidth//2, self. church_y - self. church_y//6], 10)
         pygame.draw.line(self.townScreen, Colors.MIDNIGHT_BLUE,
-                         [self.church_x + self.churchWidth / 2 + 175, self.church_y],
-                         [self.church_x + self.churchWidth/2, self. church_y - self. church_y/6], 10)
+                         [self.church_x + self.churchWidth // 2 + 175, self.church_y],
+                         [self.church_x + self.churchWidth//2, self. church_y - self. church_y//6], 10)
                 # entrance and exit
         pygame.draw.rect(self.townScreen, Colors.CERULEAN,
-                         [self.church_x + self.churchWidth / 2 - 100, self.church_y + self.churchHeight - 55,
-                          self.churchWidth / 12, self.churchHeight - 35])
+                         [self.church_x + self.churchWidth // 2 - 100, self.church_y + self.churchHeight - 55,
+                          self.churchWidth // 12, self.churchHeight - 35])
         pygame.draw.circle(self.townScreen, Colors.CERULEAN,
-                           [self.church_x + self.churchWidth / 2 - 75, self.church_y + self.churchHeight - 55],
-                           self.churchWidth / 24)
+                           [self.church_x + self.churchWidth // 2 - 75, self.church_y + self.churchHeight - 55],
+                           self.churchWidth // 24)
         pygame.draw.rect(self.townScreen, Colors.CERULEAN,
-                         [self.church_x + self.churchWidth / 2 - 25, self.church_y + self.churchHeight - 55,
-                          self.churchWidth / 12, self.churchHeight - 35])
+                         [self.church_x + self.churchWidth // 2 - 25, self.church_y + self.churchHeight - 55,
+                          self.churchWidth // 12, self.churchHeight - 35])
         pygame.draw.circle(self.townScreen, Colors.CERULEAN,
-                           [self.church_x + self.churchWidth / 2, self.church_y + self.churchHeight - 55],
-                           self.churchWidth / 24)
+                           [self.church_x + self.churchWidth // 2, self.church_y + self.churchHeight - 55],
+                           self.churchWidth // 24)
         pygame.draw.rect(self.townScreen, Colors.CERULEAN,
-                         [self.church_x + self.churchWidth / 2 + 50, self.church_y + self.churchHeight - 55,
-                          self.churchWidth / 12, self.churchHeight - 35])
+                         [self.church_x + self.churchWidth // 2 + 50, self.church_y + self.churchHeight - 55,
+                          self.churchWidth // 12, self.churchHeight - 35])
         pygame.draw.circle(self.townScreen, Colors.CERULEAN,
-                           [self.church_x + self.churchWidth / 2 + 75, self.church_y + self.churchHeight - 55],
-                           self.churchWidth / 24)
+                           [self.church_x + self.churchWidth // 2 + 75, self.church_y + self.churchHeight - 55],
+                           self.churchWidth // 24)
             # top
         pygame.draw.polygon(self.townScreen, Colors.YELLOW,
-                            ([self.church_x + self.churchWidth / 2 - 75, self.church_y - self.churchHeight * 2 + 30],
-                             [self.church_x + self.churchWidth / 2 - 75, self.church_y],
-                             [self.church_x + self.churchWidth / 2 + 75, self.church_y],
-                             [self.church_x + self.churchWidth / 2 + 75, self.church_y - self.churchHeight * 2 + 30],
-                             [self.church_x + self.churchWidth / 2, self.church_y - self.churchHeight * 2.5 + 15]))
+                            ([self.church_x + self.churchWidth // 2 - 75, self.church_y - self.churchHeight * 2 + 30],
+                             [self.church_x + self.churchWidth // 2 - 75, self.church_y],
+                             [self.church_x + self.churchWidth // 2 + 75, self.church_y],
+                             [self.church_x + self.churchWidth // 2 + 75, self.church_y - self.churchHeight * 2 + 30],
+                             [self.church_x + self.churchWidth // 2, self.church_y - self.churchHeight * 2.5 + 15]))
         pygame.draw.line(self.townScreen, Colors.MIDNIGHT_BLUE,
-                         [self.church_x + self.churchWidth / 2 - 75, self.church_y - self.churchHeight * 2 + 30],
-                         [self.church_x + self.churchWidth / 2, self.church_y - self.churchHeight * 2.5 + 15], 10)
+                         [self.church_x + self.churchWidth // 2 - 75, self.church_y - self.churchHeight * 2 + 30],
+                         [self.church_x + self.churchWidth // 2, self.church_y - self.churchHeight * 2.5 + 15], 10)
         pygame.draw.line(self.townScreen, Colors.MIDNIGHT_BLUE,
-                         [self.church_x + self.churchWidth / 2 + 75, self.church_y - self.churchHeight * 2 + 30],
-                         [self.church_x + self.churchWidth / 2, self.church_y - self.churchHeight * 2.5 + 15], 10)
+                         [self.church_x + self.churchWidth // 2 + 75, self.church_y - self.churchHeight * 2 + 30],
+                         [self.church_x + self.churchWidth // 2, self.church_y - self.churchHeight * 2.5 + 15], 10)
         pygame.draw.line(self.townScreen, Colors.MIDNIGHT_BLUE,
-                         [self.church_x + self.churchWidth / 2 - 75, self.church_y - 40],
-                         [self.church_x + self.churchWidth / 2 + 75, self.church_y - 40], 10)
+                         [self.church_x + self.churchWidth // 2 - 75, self.church_y - 40],
+                         [self.church_x + self.churchWidth // 2 + 75, self.church_y - 40], 10)
                 # Holy Cross
         pygame.draw.rect(self.townScreen, Colors.BLACK,
-                         [self.church_x + self.churchWidth / 2 - 5, self.church_y - self.churchHeight - 95, 10, 60])
+                         [self.church_x + self.churchWidth // 2 - 5, self.church_y - self.churchHeight - 95, 10, 60])
         pygame.draw.rect(self.townScreen, Colors.BLACK,
-                         [self.church_x + self.churchWidth / 2 - 20, self.church_y - self.churchHeight - 80, 40, 10])
+                         [self.church_x + self.churchWidth // 2 - 20, self.church_y - self.churchHeight - 80, 40, 10])
 
     # supermarket
         pygame.draw.rect(self.townScreen, Colors.TEAL,
@@ -344,19 +344,19 @@ class ThemeLevelZero():
                          [self.supermarket_x + self.supermarketWidth, self.supermarket_y], 10)
             # doors
         pygame.draw.rect(self.townScreen, Colors.BRIGHT_BLUE,
-                         [self.supermarket_x + self.supermarketWidth/2 - 40, self.supermarket_y + 45,
-                          self.supermarketWidth * 2 / 15, self.supermarketHeight - 45])
+                         [self.supermarket_x + self.supermarketWidth//2 - 40, self.supermarket_y + 45,
+                          self.supermarketWidth * 2 // 15, self.supermarketHeight - 45])
         pygame.draw.rect(self.townScreen, Colors.BRIGHT_BLUE,
-                         [self.supermarket_x + self.supermarketWidth / 2 - 40 - 80 - 15, self.supermarket_y + 45,
-                          self.supermarketWidth * 2 / 15, self.supermarketHeight - 45])
+                         [self.supermarket_x + self.supermarketWidth // 2 - 40 - 80 - 15, self.supermarket_y + 45,
+                          self.supermarketWidth * 2 // 15, self.supermarketHeight - 45])
         pygame.draw.rect(self.townScreen, Colors.BRIGHT_BLUE,
-                         [self.supermarket_x + self.supermarketWidth / 2 + 40 + 15, self.supermarket_y + 45,
-                          self.supermarketWidth * 2 / 15, self.supermarketHeight - 45])
+                         [self.supermarket_x + self.supermarketWidth // 2 + 40 + 15, self.supermarket_y + 45,
+                          self.supermarketWidth * 2 // 15, self.supermarketHeight - 45])
         pygame.draw.polygon(self.townScreen, Colors.DARK_YELLOW,
-                            ([self.supermarket_x + self.supermarketWidth / 2 + 40 + 80 + 15 + 15, self.supermarket_y + 45],
-                             [self.supermarket_x + self.supermarketWidth / 2 + 40 + 80 + 15, self.supermarket_y + 15],
-                             [self.supermarket_x + self.supermarketWidth / 2 - 40 - 80 - 15, self.supermarket_y + 15],
-                             [self.supermarket_x + self.supermarketWidth / 2 - 40 - 80 - 15 - 15, self.supermarket_y + 45]))
+                            ([self.supermarket_x + self.supermarketWidth // 2 + 40 + 80 + 15 + 15, self.supermarket_y + 45],
+                             [self.supermarket_x + self.supermarketWidth // 2 + 40 + 80 + 15, self.supermarket_y + 15],
+                             [self.supermarket_x + self.supermarketWidth // 2 - 40 - 80 - 15, self.supermarket_y + 15],
+                             [self.supermarket_x + self.supermarketWidth // 2 - 40 - 80 - 15 - 15, self.supermarket_y + 45]))
             # windows
         pygame.draw.rect(self.townScreen, Colors.BRIGHT_BLUE,
                          [self.supermarket_x + 56, self.supermarket_y - self.supermarketHeight + 15,
@@ -374,16 +374,16 @@ class ThemeLevelZero():
         pygame.draw.polygon(self.townScreen, Colors.BURNT_ORANGE,
                             ([self.supermarket_x, self.supermarket_y - self.supermarketHeight],
                              [self.supermarket_x, self.supermarket_y - self.supermarketHeight - 20],
-                             [self.supermarket_x + self.supermarketWidth/2 - 135, self.supermarket_y - self.supermarketHeight - 20],
-                             [self.supermarket_x + self.supermarketWidth/2 - 135, self.supermarket_y - self.supermarketHeight - 50],
-                             [self.supermarket_x + self.supermarketWidth/2 + 135, self.supermarket_y - self.supermarketHeight - 50],
-                             [self.supermarket_x + self.supermarketWidth/2 + 135, self.supermarket_y - self.supermarketHeight - 20],
+                             [self.supermarket_x + self.supermarketWidth//2 - 135, self.supermarket_y - self.supermarketHeight - 20],
+                             [self.supermarket_x + self.supermarketWidth//2 - 135, self.supermarket_y - self.supermarketHeight - 50],
+                             [self.supermarket_x + self.supermarketWidth//2 + 135, self.supermarket_y - self.supermarketHeight - 50],
+                             [self.supermarket_x + self.supermarketWidth//2 + 135, self.supermarket_y - self.supermarketHeight - 20],
                              [self.supermarket_x + self.supermarketWidth, self.supermarket_y - self.supermarketHeight - 20],
                              [self.supermarket_x + self.supermarketWidth, self.supermarket_y - self.supermarketHeight]))
     # hospital
         pygame.draw.rect(self.townScreen, Colors.WHITE,
-                         [self.hospital_x, self.hospital_y - self.hospitalHeight/2,
-                          self.hospitalWidth, self.hospitalHeight + self.hospitalHeight/2])
+                         [self.hospital_x, self.hospital_y - self.hospitalHeight//2,
+                          self.hospitalWidth, self.hospitalHeight + self.hospitalHeight//2])
 
         for j in range(self.hospital_y - 80 + 20, self.hospital_y + 101, 80):
             for i in range(self.hospital_x + 20, self.hospital_x + 300 - 100, 50):
@@ -395,15 +395,15 @@ class ThemeLevelZero():
                                 [i, j, 30, 60])
 
         pygame.draw.rect(self.townScreen, Colors.CYAN,
-                             [self.hospital_x + self.hospitalWidth/2 - 40, self.hospital_y + self.hospitalHeight / 2,
-                              self.hospitalWidth/10 + 20, self.hospitalHeight / 2])
+                             [self.hospital_x + self.hospitalWidth//2 - 40, self.hospital_y + self.hospitalHeight // 2,
+                              self.hospitalWidth//10 + 20, self.hospitalHeight // 2])
         pygame.draw.rect(self.townScreen, Colors.RED,
-                         [self.hospital_x + self.hospitalWidth / 2 - 10, self.hospital_y - self.hospitalHeight / 2 + 20,
-                          self.hospitalWidth / 30, self.hospitalHeight / 2.5])
+                         [self.hospital_x + self.hospitalWidth // 2 - 10, self.hospital_y - self.hospitalHeight // 2 + 20,
+                          self.hospitalWidth // 30, self.hospitalHeight // 2.5])
         pygame.draw.rect(self.townScreen, Colors.RED,
-                         [self.hospital_x + self.hospitalWidth / 2 - 40,
-                          self.hospital_y - self.hospitalHeight / 4,
-                          self.hospitalWidth / 7.5, self.hospitalHeight / 10])
+                         [self.hospital_x + self.hospitalWidth // 2 - 40,
+                          self.hospital_y - self.hospitalHeight // 4,
+                          self.hospitalWidth // 7.5, self.hospitalHeight // 10])
 
 
             # ...
