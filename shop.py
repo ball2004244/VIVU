@@ -32,16 +32,18 @@ class ShopThemeOne():
             self.buy_y = self.stall_y + self.stall_height
             self.buy_width = self.stall_width // 2
             self.buy_height = self.stall_height // 5
-            pygame.draw.rect(self.surface, Colors.GREEN, (self.buy_x,
-                             self.buy_y, self.buy_width, self.buy_height))
+            self.buy_button = pygame.Surface(
+                (self.buy_width, self.buy_height), pygame.SRCALPHA)
+            self.buy_button.fill(Colors.GREEN)
 
             # sell
             self.sell_x = self.buy_x + self.buy_width
             self.sell_y = self.buy_y
             self.sell_width = self.buy_width
             self.sell_height = self.buy_height
-            pygame.draw.rect(self.surface, Colors.RED, (self.sell_x,
-                             self.sell_y, self.sell_width, self.sell_height))
+            self.sell_button = pygame.Surface(
+                (self.sell_width, self.sell_height), pygame.SRCALPHA)
+            self.sell_button.fill(Colors.RED)
 
         def money_bar():
             # frame
@@ -61,6 +63,9 @@ class ShopThemeOne():
         '''VARIABLE FOR MECHANISM'''
         self.buying = False
         self.selling = False
+
+        self.show_buy_price = False
+        self.show_sell_price = False
         pass
 
     def draw(self, player, weapon):
@@ -71,19 +76,52 @@ class ShopThemeOne():
             weapon_x = self.stall_x + self.stall_width // 2 - weapon.width // 2
             weapon_y = self.stall_y + self.stall_height // 2 - weapon.height // 2
 
-            Screen.blit(weapon.surface, (weapon_x, weapon_y))
-
-            # print buy and sell
-            Screen.blit(pygame.font.Font.render(
-                FontType.FONT3, 'BUY', True, Colors.BLACK), (self.buy_x + self.buy_width // 5, self.buy_y + self.buy_height // 5))
-            Screen.blit(pygame.font.Font.render(
-                FontType.FONT3, 'SELL', True, Colors.BLACK), (self.sell_x + self.sell_width // 5, self.sell_y + self.sell_height // 5))
+            Screen.blit(weapon.surface, (weapon_x, weapon_y))     
 
             # money
             Screen.blit(pygame.font.Font.render(
                 FontType.FONT3, 'Money: ', True, Colors.BLACK), (self.money_bar_x * 3 // 2, self.money_bar_y + self.money_bar_height // 3))
             Screen.blit(pygame.font.Font.render(
                 FontType.FONT3, str(player.money), True, Colors.BLACK), (self.money_bar_x * 7 // 2, self.money_bar_y + self.money_bar_height // 3))
+
+
+            # print buy
+            Screen.blit(self.buy_button, (self.buy_x, self.buy_y))
+
+            #show price when hovering
+            if self.show_buy_price:
+                self.buy_button.fill((221, 221, 221))
+                buy_text = str(weapon.buy_price)
+                pass
+            else: 
+                self.buy_button.fill(Colors.GREEN)
+                buy_text = 'BUY'
+                pass
+
+            buy_show = pygame.font.Font.render(
+                FontType.FONT3, buy_text, True, Colors.BLACK)
+            buy_show_rect = buy_show.get_rect(center=(self.buy_x + self.buy_width // 2, self.buy_y + self.buy_height // 2))
+            
+            Screen.blit(buy_show, buy_show_rect)
+
+            # print sell
+            Screen.blit(self.sell_button, (self.sell_x, self.sell_y))
+            
+            #show price when hovering
+            if self.show_sell_price:
+                self.sell_button.fill((221, 221, 221))
+                sell_text = str(weapon.sell_price)
+                pass
+            else:
+                self.sell_button.fill(Colors.RED)
+                sell_text = 'SELL'
+                pass
+
+            sell_show = pygame.font.Font.render(
+                FontType.FONT3, sell_text, True, Colors.BLACK)
+            sell_show_rect = sell_show.get_rect(center=(self.sell_x + self.sell_width // 2, self.sell_y + self.sell_height // 2))
+            
+            Screen.blit(sell_show, sell_show_rect)
         pass
 
     def toggle(self):
@@ -95,8 +133,8 @@ class ShopThemeOne():
         # Check Buy / Sell Mechanism
         (mouseX, mouseY) = pygame.mouse.get_pos()
 
-        #buy
-        if mouseX >= self.buy_x and mouseX <= self.buy_x + self.buy_width and mouseY >= self.buy_y and mouseY <= self.buy_y + self.buy_height:
+        # buy
+        if self.buy_button.get_rect(topleft=(self.buy_x, self.buy_y)).collidepoint((mouseX, mouseY)):
             if player.money >= weapon.buy_price:
                 self.buying = True
             else:
@@ -106,12 +144,25 @@ class ShopThemeOne():
                 player.money -= weapon.buy_price
                 self.buying = False
 
-        #sell
-        if mouseX >= self.sell_x and mouseX <= self.sell_x + self.sell_width and mouseY >= self.sell_y and mouseY <= self.sell_y + self.sell_height:
+        # sell
+        if self.sell_button.get_rect(topleft=(self.sell_x, self.sell_y)).collidepoint((mouseX, mouseY)):
             self.selling = True
 
             if self.selling:
                 player.money += weapon.sell_price
-
+                self.selling = False
+       
     def update(self):
+        # show price when mouse hover
+        (mouseX, mouseY) = pygame.mouse.get_pos()
+        # show price when mouse hover
+        if self.buy_button.get_rect(topleft=(self.buy_x, self.buy_y)).collidepoint((mouseX, mouseY)):
+            self.show_buy_price = True
+        else: 
+            self.show_buy_price = False
+        
+        if self.sell_button.get_rect(topleft=(self.sell_x, self.sell_y)).collidepoint((mouseX, mouseY)):
+            self.show_sell_price = True
+        else:
+            self.show_sell_price = False
         pass

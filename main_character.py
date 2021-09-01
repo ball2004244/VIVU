@@ -194,6 +194,8 @@ class Player():
         movement()
         pass
 
+    pass
+
 
 class StatusBar():
     def __init__(self):
@@ -335,6 +337,8 @@ class StatusBar():
         # Unfinished
         pass
 
+    pass
+
 
 class Inventory():
     def __init__(self):
@@ -374,7 +378,7 @@ class Inventory():
                          self.right_rect_y, self.right_rect_width, self.right_rect_height))
         pass
 
-    def draw(self, player, weapon, status):
+    def draw(self, player, item, status):
         def display_char():  # use left_up_rect
             # draw character
             ratio = 3
@@ -420,23 +424,59 @@ class Inventory():
 
         def display_status():
             # use left_down_rect
-            gap_x = self.left_down_rect_width * 2 // 7  # distance between columns
-            gap_y = self.left_down_rect_height // 7  # distance between lines
-            x = self.left_down_rect_x * 5 // 4
-            y = self.left_down_rect_y + gap_y
 
-            Screen.blit(pygame.font.Font.render(FontType.FONT3, 'HP: ' + str(
-                status.current_hp) + ' / ' + str(status.full_hp), True, Colors.BLACK), (x, y))
+            def show_status_col1(name, max):
+                gap_y = self.left_down_rect_height // 7  # distance between lines
+                x = self.left_down_rect_x + self.left_down_rect_width // 6
+                y = self.left_down_rect_y
 
-            Screen.blit(pygame.font.Font.render(FontType.FONT3, 'MP: ' + str(status.current_mp) +
-                        ' / ' + str(status.full_mp), True, Colors.BLACK), (x, y + gap_y))
+                for i in range(2):
+                    text = pygame.font.Font.render(
+                        FontType.FONT2, name[i] + str(max[i]), True, Colors.BLACK)
+                    text_rect = text.get_rect(center=(x, y + gap_y * (i + 1)))
 
+                    Screen.blit(text, text_rect)
+                pass
+
+            def show_status_col2(name, max):
+                gap_y = self.left_down_rect_height // 7  # distance between lines
+                x = self.left_down_rect_x + self.left_down_rect_width * 70 // 100
+                y = self.left_down_rect_y
+
+                for i in range(1):
+                    text = pygame.font.Font.render(
+                        FontType.FONT2, name[i] + str(max[i]), True, Colors.BLACK)
+                    text_rect = text.get_rect(center=(x, y + gap_y * (i + 1)))
+
+                    Screen.blit(text, text_rect)
+                pass
+
+            show_status_col1(['HP: ', 'MP: '], [status.max_hp, status.max_mp])
+            show_status_col2(['TEST: '], [100])
             # unfinished
             pass
 
         def display_item():
             # use right_rect
-            ratio = 1
+            ratio = 1 / 2
+
+            x = self.right_rect_x + self.right_rect_width * 3 // 100
+            y = self.right_rect_y + self.right_rect_height * 1 // 100
+            width = 100
+            height = width
+            item_width = int(item.surface_width * ratio)
+            item_height = int(item.surface_height * ratio)
+            box = pygame.Surface((width, height), pygame.SRCALPHA)
+            box.fill((211, 211, 211))
+            pygame.draw.rect(box, Colors.BLACK, (0, 0, width, height), 5)
+
+            item_surface = pygame.transform.scale(
+                item.surface, (item_width, item_height))
+            item_surface_rect = item_surface.get_rect(
+                center=(x + width // 2, y + height // 2))
+
+            Screen.blit(box, (x, y))
+            Screen.blit(item_surface, item_surface_rect)
 
             pass
 
@@ -467,3 +507,42 @@ class Inventory():
 
     def update(self):
         pass
+    pass
+
+
+class Map():
+    def __init__(self):
+        self.opening = False
+        pass
+
+    def draw(self, theme):
+        # Draw Surface
+        ratio = 5 / 100
+        self.width = int(theme.surface_width * ratio)
+        self.height = int(theme.surface_height * ratio)
+        self.pos_x = 1024 - self.width - 10
+        self.pos_y = 10
+        self.surface = pygame.transform.scale(
+            theme.surface, (self.width, self.height))
+
+        # Draw Frame
+        self.frame_dense = 5
+        self.frame_x = self.pos_x - self.frame_dense
+        self.frame_y = self.pos_y - self.frame_dense
+        self.frame_width = self.width + 2 * self.frame_dense
+        self.frame_height = self.height + 2 * self.frame_dense
+        self.frame = pygame.Surface((self.frame_width, self.frame_height), pygame.SRCALPHA)
+        self.frame.fill(Colors.LIGHTBROWN)
+
+        if self.opening:
+            Screen.blit(self.frame, (self.frame_x, self.frame_y))
+            Screen.blit(self.surface, (self.pos_x, self.pos_y))
+        pass
+    
+    def toggle(self):
+        self.opening = not self.opening
+        pass
+    
+    def update(self):
+        pass
+    pass
